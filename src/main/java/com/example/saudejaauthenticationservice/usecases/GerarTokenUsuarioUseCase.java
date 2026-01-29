@@ -11,7 +11,7 @@ public class GerarTokenUsuarioUseCase {
         this.tokenGateway = tokenGateway;
     }
 
-    public String executar(String email, String senha, TipoUsuarioEnum tipo, String audiencia) {
-        return tokenGateway.gerarTokenUsuario(new CredenciaisUsuarioResponse(email, senha, tipo), audiencia);
+    public String executar(Long id, String senha, TipoUsuarioEnum tipo, String audiencia) {
+        return tokenGateway.gerarTokenUsuario(new CredenciaisUsuarioResponse(id, senha, tipo), audiencia);
     }
 }

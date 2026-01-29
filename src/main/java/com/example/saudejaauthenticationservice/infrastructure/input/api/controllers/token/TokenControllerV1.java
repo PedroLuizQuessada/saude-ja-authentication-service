@@ -52,7 +52,7 @@ public class TokenControllerV1 {
         if (userDetails.getAuthorities().stream().findFirst().isPresent()) {
             log.info("Usuário {} gerando token", userDetails.getUsername());
             tipoToken = "Usuário";
-            token = tokenController.gerarTokenUsuario(userDetails.getUsername(), userDetails.getPassword(),
+            token = tokenController.gerarTokenUsuario(Long.valueOf(userDetails.getUsername()), userDetails.getPassword(),
                     TipoUsuarioEnum.valueOf(String.valueOf(userDetails.getAuthorities().stream().findFirst().get())), audiencia);
         }
         else {

@@ -44,7 +44,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         catch (NotFoundException ex) {
             try {
                 CredenciaisUsuarioResponse credenciaisUsuarioResponse = usuarioController.getCredenciaisUsuarioByEmailUseCase(username);
-                nome = credenciaisUsuarioResponse.email();
+                nome = String.valueOf(credenciaisUsuarioResponse.id());
                 senha = credenciaisUsuarioResponse.senha();
                 tipoUsuario = credenciaisUsuarioResponse.tipo();
             }

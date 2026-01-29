@@ -13,10 +13,10 @@ public class TokenController {
         this.tokenDataSource = tokenDataSource;
     }
 
-    public String gerarTokenUsuario(String email, String senha, TipoUsuarioEnum tipo, String audiencia) {
+    public String gerarTokenUsuario(Long id, String senha, TipoUsuarioEnum tipo, String audiencia) {
         TokenGateway tokenGateway = new TokenGateway(tokenDataSource);
         GerarTokenUsuarioUseCase useCase = new GerarTokenUsuarioUseCase(tokenGateway);
-        return useCase.executar(email, senha, tipo, audiencia);
+        return useCase.executar(id, senha, tipo, audiencia);
     }
 
     public String gerarTokenServico(String servico, String audiencia) {

@@ -35,7 +35,7 @@ public class TokenJwtImpl implements TokenDataSource {
                 .issuedAt(agora)
                 .expiresAt(agora.plusSeconds(tempoExpiracao))
                 .audience(Collections.singletonList(audiencia))
-                .subject(credenciaisUsuarioResponse.email())
+                .subject(String.valueOf(credenciaisUsuarioResponse.id()))
                 .claim("tipo_token", TipoTokenEnum.USUARIO)
                 .claim("authorities", credenciaisUsuarioResponse.tipo())
                 .id(UUID.randomUUID().toString())
