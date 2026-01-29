@@ -1,5 +1,6 @@
 # Execução local:
-obs.: a aplicação faz parte do projeto saude-ja (https://github.com/stars/PedroLuizQuessada/lists/sa%C3%BAde-j%C3%A1)
+1) Swagger estará disponível em: http://localhost:8080/saude-ja-authentication-service/swagger-ui/index.html
+<br><br>obs.: a aplicação faz parte do projeto saude-ja (https://github.com/stars/PedroLuizQuessada/lists/sa%C3%BAde-j%C3%A1)
 <br>obs2.: ao executar, o serviço saude-ja-usuario-service e senha "saude-ja-usuario-service-senha" estará disponível para geração de token
 
 # Alterações para ambientes corporativos:
