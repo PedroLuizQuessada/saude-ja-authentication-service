@@ -14,7 +14,7 @@ public class ServicoMemoriaImpl implements ServicoDataSource {
 
     private static final Map<String, String> SERVICOS =
             Map.of(
-                    "saude-ja-usuario-service", "senha" //TODO incluir senha criptografada para serviços
+                    "saude-ja-usuario-service", "$2a$10$GOXvcVxcQVusjGBKbBp0y.mdJYjU4/Pcey98Kz2K.feFn8co/WN9S"
             );
 
     @Override
