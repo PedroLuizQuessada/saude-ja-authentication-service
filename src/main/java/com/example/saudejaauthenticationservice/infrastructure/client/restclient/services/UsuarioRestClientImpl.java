@@ -36,7 +36,7 @@ public class UsuarioRestClientImpl implements UsuarioDataSource {
     @Override
     public CredenciaisUsuarioResponse getCredenciaisUsuarioByEmail(String email) throws NotFoundException {
         return client.get()
-                .uri(urlBase + "/api/v1/usuarios/" + email)
+                .uri(urlBase + "/api/v1/usuarios/credenciais/" + email)
                 .header("Authorization", "Bearer " + tokenController.gerarTokenServico(nomeAplicacao, audiencia))
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (req, res) ->
