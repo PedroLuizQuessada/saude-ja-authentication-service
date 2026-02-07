@@ -27,10 +27,12 @@ public class UsuarioRestClientImpl implements UsuarioDataSource {
     private String audiencia;
     private final RestClient client;
     private final TokenController tokenController;
+    private final ClientResponseService clientResponseService;
 
-    public UsuarioRestClientImpl(RestClient client, TokenDataSource tokenDataSource) {
+    public UsuarioRestClientImpl(RestClient client, TokenDataSource tokenDataSource, ClientResponseService clientResponseService) {
         this.client = client;
         this.tokenController = new TokenController(tokenDataSource);
+        this.clientResponseService = clientResponseService;
     }
 
     @Override
@@ -41,17 +43,20 @@ public class UsuarioRestClientImpl implements UsuarioDataSource {
                 .retrieve()
                 .onStatus(HttpStatusCode::is4xxClientError, (req, res) ->
                         {
+                            String body = clientResponseService.getResponseBody(res);
+
                             if (res.getStatusCode().equals(HttpStatus.BAD_REQUEST))
-                                throw new BadRequestException(res.getStatusText());
+                                throw new BadRequestException("Valores inválidos para recuperar as credenciais do usuário. Corpo: " + body);
                             if (res.getStatusCode().equals(HttpStatus.NOT_FOUND))
                                 throw new NotFoundException(String.format("Usuário %s não encontrado", email));
                             else
-                                throw new RuntimeException("Falha no serviço de usuários (usuario-service).");
+                                throw new RuntimeException("Falha no serviço de usuários (usuario-service). Corpo: " + body);
                         }
                 )
                 .onStatus(HttpStatusCode::is5xxServerError, (req, res) ->
                         {
-                            throw new RuntimeException("Falha no serviço de usuários (usuario-service).");
+                            String body = clientResponseService.getResponseBody(res);
+                            throw new RuntimeException("Falha no serviço de usuários (usuario-service). Corpo: " + body);
                         }
                 )
                 .toEntity(CredenciaisUsuarioResponse.class).getBody();
