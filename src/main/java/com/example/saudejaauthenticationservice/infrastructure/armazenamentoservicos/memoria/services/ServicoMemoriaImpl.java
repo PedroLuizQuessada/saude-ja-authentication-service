@@ -15,7 +15,8 @@ public class ServicoMemoriaImpl implements ServicoDataSource {
     private static final Map<String, String> SERVICOS =
             Map.of(
                     "saude-ja-usuario-service", "$2a$10$GOXvcVxcQVusjGBKbBp0y.mdJYjU4/Pcey98Kz2K.feFn8co/WN9S",
-                    "saude-ja-ficha-paciente-service", "$2a$10$aRls/I6JdCnWT9KYl7JFi.mMz84lxyBZJaqMYtEuTMO3/tiCpLjU6"
+                    "saude-ja-ficha-paciente-service", "$2a$10$aRls/I6JdCnWT9KYl7JFi.mMz84lxyBZJaqMYtEuTMO3/tiCpLjU6",
+                    "saude-ja-posto-saude-service", "$2a$10$W/aHHFdttCYE9y9XjdahNOvfmEw.77pr3/tsCRctfq9wCr0KHHbMe"
             );
 
     @Override
