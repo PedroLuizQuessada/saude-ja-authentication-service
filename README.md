@@ -4,6 +4,8 @@
 <br>obs2.: ao executar, os seguintes serviços estarão disponíveis para geração de token
     - serviço saude-ja-usuario-service e senha saude-ja-usuario-service-senha
     - serviço saude-ja-ficha-paciente-service e senha saude-ja-ficha-paciente-service-senha
+    - serviço saude-ja-posto-saude-service e senha saude-ja-posto-saude-service-senha
+    - serviço saude-ja-consulta-service e senha saude-ja-consulta-service-senha
 
 # Alterações para ambientes corporativos:
 1) Adição dos arquivos da pasta src/main/resources/keys no .gitignore
